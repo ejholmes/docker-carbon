@@ -1,6 +1,8 @@
 FROM ubuntu:12.04
 MAINTAINER Eric Holmes <eric@ejholmes.io>
 
+VOLUME ["/opt/graphite/storage"]
+
 ADD ./bin/start /bin/start
 ADD ./bin/build /bin/build
 RUN /bin/build
