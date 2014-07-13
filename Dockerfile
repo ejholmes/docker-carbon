@@ -5,7 +5,6 @@ ADD ./bin/start /bin/start
 ADD ./bin/build /bin/build
 RUN /bin/build
 
-EXPOSE 80
 EXPOSE 2003
 EXPOSE 2004
 

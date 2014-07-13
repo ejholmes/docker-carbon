@@ -1,0 +1,31 @@
+#!/bin/sh
+
+set -e
+
+apt-get update
+apt-get install -y \
+  build-essential \
+  expect \
+  nginx \
+  curl \
+  unzip \
+  libcairo2-dev \
+  python-pip \
+  python-dev \
+  python-flup \
+  python-ldap \
+  libcairo2 \
+  python-cairo \
+  git
+
+# Install carbon
+cd /tmp
+curl -k -L https://github.com/graphite-project/carbon/archive/0.9.12.zip > carbon.zip
+unzip carbon.zip && rm carbon.zip
+ln -s carbon-0.9.12 carbon
+cd carbon
+pip install -r requirements.txt
+python ./setup.py install
+
+cp /opt/graphite/conf/carbon.conf.example /opt/graphite/conf/carbon.conf
+cp /opt/graphite/conf/storage-schemas.conf.example /opt/graphite/conf/storage-schemas.conf
