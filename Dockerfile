@@ -1,7 +1,7 @@
 FROM ubuntu:12.04
 MAINTAINER Eric Holmes <eric@ejholmes.io>
 
-VOLUME ["/opt/graphite/storage"]
+VOLUME ["/opt/graphite/storage/whisper"]
 
 ADD ./bin/start /bin/start
 ADD ./bin/build /bin/build
